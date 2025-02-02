@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ES</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+            background: linear-gradient(to bottom right, #e0f7fa, #c2e5ed); /* Soft blue gradient background */
+            color: #333; /* Darker text for better contrast */
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 3rem; /* Increased padding */
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white container */
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+        }
+        h1 {
+            color: #2c3e50; /* Darker heading color */
+            margin-bottom: 2.5rem; /* Increased margin */
+            font-size: 3rem; /* Larger heading */
+            font-weight: bold; /* Bold heading */
+            letter-spacing: -1px; /* Slightly reduce letter spacing for a cleaner look */
+        }
+        form {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem; /* Increased gap */
+            margin-bottom: 2.5rem; /* Increased margin */
+        }
+        input[type="text"] {
+            padding: 1.2rem; /* Increased padding */
+            border: none; /* Remove border */
+            border-radius: 30px; /* More rounded corners */
+            font-size: 1.2rem; /* Slightly larger font */
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #f0f0f0; /* Light grey input background */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05); /* Soft inset shadow */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            color: #444; /* Darker input text color */
+        }
+        input[type="text"]:focus {
+            outline: none;
+            background-color: #e8e8e8; /* Slightly darker on focus */
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 0 3px rgba(0,123,255,0.2); /* More pronounced focus shadow */
+            border-color: transparent; /* Ensure no border on focus */
+        }
+        button {
+            padding: 1.2rem 2.5rem; /* Increased button padding */
+            background: linear-gradient(to right, #4dabf7, #007bff); /* Blue gradient button */
+            color: white;
+            border: none;
+            border-radius: 30px; /* More rounded corners */
+            font-size: 1.2rem; /* Slightly larger font */
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease; /* Transition for background and transform */
+            align-self: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Button shadow */
+            font-weight: 500; /* Semi-bold font weight */
+            text-transform: uppercase; /* Uppercase button text */
+            letter-spacing: 0.5px; /* Slight letter spacing */
+        }
+        button:hover {
+            background: linear-gradient(to right, #007bff, #4dabf7); /* Reversed gradient on hover */
+            transform: scale(1.03); /* Slight scale up on hover */
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+        }
+        .result {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 1.5rem; /* Increased margin */
+            padding: 2rem; /* Increased padding */
+            background-color: #fff; /* White result box */
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+            text-align: left;
+            font-family: 'Courier New', monospace; /* Monospace font for result */
+            word-wrap: break-word;
+            border: 1px solid #eee; /* Light border for result box */
+        }
+        .result h2 {
+            color: #3498db; /* Blue result heading color */
+            margin-top: 0;
+            font-size: 1.5rem; /* Larger result heading */
+            margin-bottom: 1.2rem; /* Increased margin */
+            font-weight: bold; /* Bold result heading */
+        }
+        .result p {
+            color: black; /* Slightly lighter result text color */
+            line-height: 1.7; /* Increased line height for readability */
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- In your HTML template -->
+<div class="container">
+    <h1>Economic Survey 2024-25</h1>
+    <form method="post">
+        <input type="text" name="query" placeholder="Enter your question here">
+        <button type="submit">Search</button>
+    </form>
+    
+    <!-- Result Section - Corrected -->
+    <div class="result">
+        {% if result %}
+            <h2>Result:</h2>
+            <p>{{ result|safe }}</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
